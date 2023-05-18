@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -45,7 +46,9 @@ public class Main {
         System.out.println();
 
         System.out.println("quiz08");
-        System.out.println("ERROR");
+        for(int i = 1; i < 10; i*=-2) {
+            System.out.print(i);
+        }
         System.out.println();
 
         System.out.println("quiz09");
@@ -55,7 +58,8 @@ public class Main {
         System.out.println();
 
         System.out.println("quiz10");
-        for(int i = 5; i != 1; i=(int)Math.floor((Math.random()*4)+1)) {
+        Random rand = new Random();
+        for(int i = 5; i != 1; i = 5 - (rand.nextInt(5) + 1)) {
             System.out.print(i);
         }
         System.out.println();
@@ -412,7 +416,7 @@ public class Main {
         System.out.println("quiz47");
         int n17 = 5;
         int num01 = 1;
-        for(int i = 0; i < n16; i++) {
+        for(int i = 0; i < n17; i++) {
             for(int j = 0; j <= i; j++) {
                 System.out.print(num01 + " ");
                 num01++;
