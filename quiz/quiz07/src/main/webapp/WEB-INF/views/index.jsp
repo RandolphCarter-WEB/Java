@@ -6,7 +6,7 @@
         <title>$Title$</title>
     </head>
     <body>
-        <form action="/registration" method="post">
+        <form action="/" method="post">
             <fieldset>
                 <legend>Login</legend>
                 <label for="userID">ID : </label><input type="text" name="id" id="userID" /> <br />

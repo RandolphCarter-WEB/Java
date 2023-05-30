@@ -11,7 +11,7 @@
     </head>
     <body>
         <h2><%=userName%>님 안녕하세요.</h2>
-        <form action="/result" method="post">
+        <form action="/registration" method="post">
             <fieldset>
                 <legend>Course Registration</legend>
                 <label for="className">Class : </label>

@@ -12,7 +12,12 @@ import java.io.IOException;
 
 @Controller
 public class loginController {
-    @RequestMapping(value ="/registration", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method=RequestMethod.GET)
+    public String login() {
+        return "index";
+    }
+
+    @RequestMapping(value ="/", method = RequestMethod.POST)
     public String login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
 
@@ -27,12 +32,12 @@ public class loginController {
                 req.setAttribute("userAge", 30);
                 req.setAttribute("userEmail", "tmd3587@daum.net");
 
-                return "forward:/registration";
+                return "registration";
             } else {
-                return "redirect:/index.jsp";
+                return "redirect:/index";
             }
         } else {
-            return "redirect:/index.jsp";
+            return "redirect:/index";
         }
     }
 }

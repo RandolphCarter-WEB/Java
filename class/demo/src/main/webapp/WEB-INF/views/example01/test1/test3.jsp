@@ -6,10 +6,6 @@
         <title>$Title$</title>
     </head>
     <body>
-        <h1>This is index.jsp</h1>
-        <ul>
-            <li><a href="example01">location Spring Path</a></li>
-            <li><a href="example02">location Spring Path DataMove</a></li>
-        </ul>
+        <h1>this is test3 Page of GET method</h1>
     </body>
 </html>
