@@ -7,7 +7,7 @@ import org.springframework.web.context.request.WebRequest;
 @Controller
 public class loginController {
     @PostMapping("/login")
-    public String Login(WebRequest req) {
+public String Login(WebRequest req) {
         String userID = req.getParameter("id");
         String userPW = req.getParameter("pw");
 
@@ -15,10 +15,12 @@ public class loginController {
         if(userID.equals("tmd3587")) {
             assert userPW != null;
             if(userPW.equals("123")) {
-                req.setAttribute("userID", userID, WebRequest.SCOPE_REQUEST);
-                req.setAttribute("userPW", userPW, WebRequest.SCOPE_REQUEST);
+                req.setAttribute("userID", userID, WebRequest.SCOPE_SESSION);
+                req.setAttribute("userPW", userPW, WebRequest.SCOPE_SESSION);
 
-                req.setAttribute("userName", "OST", WebRequest.SCOPE_REQUEST);
+                req.setAttribute("userName", "OST", WebRequest.SCOPE_SESSION);
+                req.setAttribute("userAge", 30, WebRequest.SCOPE_SESSION);
+                req.setAttribute("userEmail", "tmd3587@daum.net", WebRequest.SCOPE_SESSION);
 
                 return "register/registerPage";
             } else {
@@ -28,6 +30,6 @@ public class loginController {
             System.out.println("[SYSTEM ERROR] ID incorrect");
         }
 
-        return "redirect:/login/loginPage";
+        return "redirect:/login";
     }
 }
