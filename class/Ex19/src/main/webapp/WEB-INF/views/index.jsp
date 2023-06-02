@@ -7,5 +7,6 @@
     </head>
     <body>
         <a href="example01">location Spring Path example01</a>
+        <a href="example02">location Spring Path example02</a>
     </body>
 </html>

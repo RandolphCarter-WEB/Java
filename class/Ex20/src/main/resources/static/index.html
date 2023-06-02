@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Thymeleaf Test Page</h1>
+        <picture>
+            <source media="(min-width: 1200px)"
+                    srcset="/imgs/image_thymeleaf.png">
+            <source media="(min-width: 700px)"
+                    srcset="/imgs/image_thymeleaf.png">
+<!--            <img src="/imgs/image_thymeleaf.png"  alt="logoImage"/>-->
+        </picture>
+
+        <h1>Thymeleaf Basic Test01</h1>
+        <ul>
+            <li>Basic Test
+                <ul>
+                    <li><a href="/basic/test-basic">Text Print Basic</a></li>
+                </ul>
+            </li>
+            <li>Basic Variable Print
+                <ul>
+                    <li><a href="/basic/test-variable">variable - SpringEL</a></li>
+                    <li><a href="/basic/test-objects?paramData=HelloParam">Basic Object</a></li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>
