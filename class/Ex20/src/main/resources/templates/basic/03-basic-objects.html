@@ -13,5 +13,12 @@
 <!--            <li>servletContext = <span th:text="${#servletContext}"></span></li>-->
 <!--            <li>locale = <span th:text="${#locale}"></span></li>-->
 <!--        </ul>-->
+
+        <h2>Object Usable</h2>
+        <ul>
+            <li>Request Parameter >> <span th:text="${param.paramData}"></span></li>
+            <li>session >> <span th:text="${session.sessionData}"></span></li>
+            <li>spring Bean >> <span th:text="${@helloBean.hello('Spring!!')}"></span></li>
+        </ul>
     </body>
 </html>

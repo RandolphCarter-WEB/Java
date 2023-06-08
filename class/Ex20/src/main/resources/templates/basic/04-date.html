@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>localDateTime</h1>
+        <ul>
+            <li>default >> <span th:text="${LocalDateTime}"></span></li>
+            <li>yyyy-MM-dd HH:mm:ss >> <span th:text="${#temporals.format(LocalDateTime, 'yyyy-MM-dd HH:mm:ss')}"></span></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </body>
+</html>

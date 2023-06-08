@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -45,5 +46,12 @@ public class HomeController {
     @GetMapping("/test-objects")
     public String testBasicObject() {
         return "basic/03-basic-objects";
+    }
+
+    @GetMapping("/test-date")
+    public String testDate(Model model) {
+        model.addAttribute("LocalDateTime", LocalDateTime.now());
+
+        return "basic/04-date";
     }
 }
