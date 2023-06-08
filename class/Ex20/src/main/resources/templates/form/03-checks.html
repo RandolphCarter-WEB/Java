@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Multi Check Example</h1>
+        <form action="result1" method="post" th:action="@{${action}}" th:object="${user00}">
+            <label for="userID">ID : </label><input id="userID" th:field="*{userID}" type="text" /> <br />
+            <label for="userPW">PW : </label><input id="userPW" th:field="*{userPW}" type="password" /> <br />
+            <hr />
+            <label for="userName">Name : </label><input id="userName" th:field="*{userName}" type="text" /> <br />
+            <label for="userPostNum">PostNum : </label><input id="userPostNum" th:field="*{userPostcode}" type="text" /> <br />
+            <label for="userAddress1">Country : </label><input id="userAddress1" th:field="*{userAddress1}" type="text" /> <br />
+            <label for="userAddress2">City : </label><input id="userAddress2" th:field="*{userAddress2}" type="text" /> <br />
+            <hr />
+
+            <div>
+                <h2>Register Location</h2>
+                <div th:each="region : ${ regions }">
+                    <input th:field="*{ states }" th:value="${ region.key }" type="checkbox">
+                    <label th:for="${ #ids.prev('states') }" th:text="${region.value}"></label>
+                </div>
+            </div>
+
+            <button id="submitBtn" type="submit">Submit</button>
+        </form>
+    </body>
+</html>

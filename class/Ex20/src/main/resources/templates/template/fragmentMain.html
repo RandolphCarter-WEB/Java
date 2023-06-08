@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>fragment Main Page</h1>
+        <h1>Section include insert</h1>
+        <div th:insert="~{template/footer :: copy}"></div>
+
+        <h1>Section include replace</h1>
+        <div th:replace="~{template/footer :: copy}"></div>
+
+        <h1>fragment insert param</h1>
+        <div th:replace="~{template/footer :: copyParam('data1','data2')}"></div>
+    </body>
+</html>

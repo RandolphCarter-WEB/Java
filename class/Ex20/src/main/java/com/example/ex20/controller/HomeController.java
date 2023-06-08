@@ -54,4 +54,11 @@ public class HomeController {
 
         return "basic/04-date";
     }
+
+    @GetMapping("/test-javascript")
+    public String testJavaScript(Model model) {
+        model.addAttribute("user", new UserDTO1("UserD", 30));
+
+        return "basic/10-javascript";
+    }
 }

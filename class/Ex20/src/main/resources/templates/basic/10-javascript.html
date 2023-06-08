@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>javascript</h1>
+<!--        <script>-->
+<!--            let userName = [[${ user.username }]];-->
+<!--            let age = [[${ user.age }]];-->
+
+<!--            let userName1 = /* [[${ user.username }]] */ "test username";-->
+
+<!--            const list = [[${ list }]];-->
+<!--        </script>-->
+
+        <script th:inline="javascript">
+            let userName = [[${ user.username }]];
+            let age = [[${ user.age }]];
+
+            let userName1 = /* [[${ user.username }]] */ "test username";
+
+            const list = [[${ list }]];
+
+            // [# th:each=`user, stat : ${list}`]
+            //     let user[[${ stat.count }]] = [[${ user }]];
+            // [/]
+        </script>
+    </body>
+</html>
