@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/class/Ex17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/class/Ex17" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/class/Ex18" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/class/Ex18" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/class/Ex19" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/class/Ex19" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/class/Ex20" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/class/Ex20" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/class/demo" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/class/demo" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/quiz/quiz06" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/quiz/quiz06" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/quiz/quiz07" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/quiz/quiz07" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/quiz/quiz08" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/quiz/quiz08" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
