@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Rest API Example Page 01</h1>
+        <hr />
+        <h2>Get Request Example</h2>
+        <button type="submit" id="submitBtn1">Request01</button>
+        <div id="result1"></div>
+
+        <script>
+            document.getElementById("submitBtn1").addEventListener("click", () => {
+                fetch("/rest1/users").then(resp => {
+                    console.log(resp);
+                    return resp.json();
+                }).then(datas => {
+                    datas.forEach(({userName, userAge, fl, bool}) => {
+                        const newP = document.createElement("p");
+                        newP.textContent = `name : ${userName}, age : ${userAge}, fl : ${fl}, bool : ${bool}`;
+                        document.getElementById("result1").append(newP);
+                    });
+                });
+            });
+        </script>
+
+        <hr />
+        <h2>Post Request Example</h2>
+        <button type="submit" id="submitBtn2">Request02</button>
+        <div id="result2"></div>
+
+        <script>
+            document.getElementById("submitBtn2").addEventListener("click", () => {
+                fetch("/rest1/users1", {
+                    method : "post",
+                    headers : {
+                        'Content-Type' : "application/json",
+                    },
+                    body : JSON.stringify({
+                        name : "OST",
+                        age : 30,
+                        address : "Korea Deajeon"
+                    })
+                }).then(resp => { console.log(resp.text()) });
+            });
+        </script>
+    </body>
+</html>
