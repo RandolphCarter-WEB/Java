@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Rest API Example Page 02</h1>
+        <hr />
+        <h2>Get Request Example</h2>
+        <button type="submit" id="submitBtn1">Request01</button>
+        <div id="result1"></div>
+
+        <script>
+            document.getElementById("submitBtn1").addEventListener("click", () => {
+                axios.get("/rest2/users1").then(resp => {
+                    for(let item of resp.data) {
+                        const p = document.createElement("p");
+                        p.textContent = `name : ${item.userName}`;
+                        document.getElementById("result1").appendChild(p);
+                    }
+                });
+            });
+        </script>
+
+        <hr />
+        <h2>Post Request Example</h2>
+        <button type="submit" id="submitBtn2">Request02</button>
+        <div id="result2"></div>
+
+        <script>
+            document.getElementById("submitBtn2").addEventListener("click", () => {
+                axios.post("/rest2/users2", {
+                    name : "OST",
+                    age : 30,
+                    address : "Korea Deajeon"
+                }).then(resp => {
+                    console.log(resp.data);
+                });
+            });
+        </script>
+
+        <hr />
+        <h2>Get Request Example02</h2>
+        <button type="submit" id="submitBtn3">Request03</button>
+        <div id="result3"></div>
+
+        <script>
+            document.getElementById("submitBtn3").addEventListener("click", () => {
+                axios.get("/rest2/users11", {
+                    params : {
+                        name : "OST",
+                        age : 30,
+                        address : "Korea Deajeon"
+                    }
+                }).then(resp => {
+                    console.log(resp);
+                });
+            });
+        </script>
+
+        <hr />
+        <h2>Put Request Example</h2>
+        <button type="submit" id="submitBtn4">Request03</button>
+        <div id="result4"></div>
+
+        <script>
+            document.getElementById("submitBtn4").addEventListener("click", () => {
+                axios.put("/rest2/users3", {
+                    name : "OST",
+                    age : 30,
+                    address : "Korea Deajeon"
+                }).then(resp => {
+                    console.log(resp);
+                });
+            });
+        </script>
+
+        <hr />
+        <h2>Patch Request Example</h2>
+        <button type="submit" id="submitBtn5">Request03</button>
+        <div id="result5"></div>
+
+        <script>
+            document.getElementById("submitBtn5").addEventListener("click", () => {
+                axios.patch("/rest2/users4", {
+                    name : "OST",
+                    age : 30,
+                    address : "Korea Deajeon"
+                }).then(resp => {
+                    console.log(resp);
+                });
+            });
+        </script>
+
+        <hr />
+        <h2>Delete Request Example</h2>
+        <button type="submit" id="submitBtn6">Request03</button>
+        <div id="result6"></div>
+
+        <script>
+            document.getElementById("submitBtn6").addEventListener("click", () => {
+                axios.delete("/rest2/users5", {
+                    data : [{
+                        name : "OST",
+                        age : 30,
+                        address : "Korea Deajeon"
+                    }, {
+                        name : "ABC",
+                        age : 10,
+                        address : "Korea SEOUL"
+                    }]
+                }).then(resp => {
+                    console.log(resp);
+                });
+            });
+        </script>
+    </body>
+</html>

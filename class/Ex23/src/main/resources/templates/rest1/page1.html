@@ -34,7 +34,7 @@
         <script>
             document.getElementById("submitBtn2").addEventListener("click", () => {
                 fetch("/rest1/users1", {
-                    method : "post",
+                    method : "POST",
                     headers : {
                         'Content-Type' : "application/json",
                     },
@@ -43,7 +43,79 @@
                         age : 30,
                         address : "Korea Deajeon"
                     })
-                }).then(resp => { console.log(resp.text()) });
+                }).then(resp => {
+                    document.getElementById("result2").textContent = resp;
+                });
+            });
+        </script>
+
+        <hr />
+        <h2>Put Request Example</h2>
+        <button type="submit" id="submitBtn3">Request03</button>
+        <div id="result3"></div>
+
+        <script>
+            document.getElementById("submitBtn3").addEventListener("click", () => {
+                fetch("/rest1/users2", {
+                    method : "PUT",
+                    headers : {
+                        'Content-Type' : "application/json",
+                    },
+                    body : JSON.stringify({
+                        name : "OST",
+                        age : 30,
+                        address : "Korea Deajeon"
+                    })
+                }).then(resp => resp.json()).then(data => {
+                    document.getElementById("result3").textContent = `Destiny is ${data.destiny}`;
+                    console.log(data);
+                });
+            });
+        </script>
+
+        <hr />
+        <h2>Patch Request Example</h2>
+        <button type="submit" id="submitBtn4">Request04</button>
+        <div id="result4"></div>
+
+        <script>
+            document.getElementById("submitBtn4").addEventListener("click", () => {
+                fetch("/rest1/users3", {
+                    method : "PATCH",
+                    headers : {
+                        'Content-Type' : "application/json",
+                    },
+                    body : JSON.stringify({
+                        destiny: "umm",
+                        chicken: "umm"
+                    })
+                }).then(resp => resp.json()).then(data => {
+                    document.getElementById("result4").textContent = `Destiny is ${data[0].destiny}`;
+                    console.log(data);
+                });
+            });
+        </script>
+
+        <hr />
+        <h2>delete Request Example</h2>
+        <button type="submit" id="submitBtn5">Request05</button>
+        <div id="result5"></div>
+
+        <script>
+            document.getElementById("submitBtn5").addEventListener("click", () => {
+                fetch("/rest1/users4", {
+                    method : "DELETE",
+                    headers : {
+                        'Content-Type' : "application/json",
+                    },
+                    body : JSON.stringify([{
+                        destiny: "umm",
+                        chicken: "umm"
+                    }]),
+                }).then(resp => resp.json()).then(data => {
+                    document.getElementById("result5").textContent = `Destiny is ${data[0].destiny}`;
+                    console.log(data);
+                });
             });
         </script>
     </body>
