@@ -1,0 +1,117 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.0'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+
+def frontendDir1 = "$projectDir/src/main/frontend1"
+def frontendDir2 = "$projectDir/src/main/frontend2"
+
+sourceSets {
+	main {resources { srcDirs = ["$projectDir/src/main/resources"]}}
+}
+
+processResources { dependsOn "copyReactHTMLFiles2" }
+
+task installReact1(type: Exec) {
+	workingDir "$frontendDir1"
+	inputs.dir "$frontendDir1"
+	group = BasePlugin.BUILD_GROUP
+	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+		commandLine "npm.cmd", "audit", "fix"
+		commandLine 'npm.cmd', 'install' }
+	else {
+		commandLine "npm", "audit", "fix" commandLine 'npm', 'install'
+	}
+}
+
+task buildReact1(type: Exec) {
+	dependsOn "installReact1"
+	workingDir "$frontendDir1"
+	inputs.dir "$frontendDir1"
+	group = BasePlugin.BUILD_GROUP
+	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+		commandLine "npm.cmd", "run-script", "build"
+	} else {
+		commandLine "npm", "run-script", "build"
+	}
+}
+
+task copyReactBuildResourceFiles1(type: Copy) {
+	dependsOn "buildReact1"
+	from "$frontendDir1/build"
+	into "$projectDir/src/main/resources/static/frontend1"
+	exclude "*.html"
+}
+
+task copyReactHTMLFiles1(type: Copy) {
+	dependsOn "copyReactBuildResourceFiles1"
+	from "$frontendDir1/build/index.html"
+	into "$projectDir/src/main/resources/templates/frontend1"
+}
+
+task installReact2(type: Exec) {
+	dependsOn "copyReactHTMLFiles1"
+	workingDir "$frontendDir2"
+	inputs.dir "$frontendDir2"
+	group = BasePlugin.BUILD_GROUP
+	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+		commandLine "npm.cmd", "audit", "fix"
+		commandLine 'npm.cmd', 'install' }
+	else {
+		commandLine "npm", "audit", "fix" commandLine 'npm', 'install'
+	}
+}
+
+task buildReact2(type: Exec) {
+	dependsOn "installReact2"
+	workingDir "$frontendDir2"
+	inputs.dir "$frontendDir2"
+	group = BasePlugin.BUILD_GROUP
+	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+		commandLine "npm.cmd", "run-script", "build"
+	} else {
+		commandLine "npm", "run-script", "build"
+	}
+}
+
+task copyReactBuildResourceFiles2(type: Copy) {
+	dependsOn "buildReact2"
+	from "$frontendDir2/build"
+	into "$projectDir/src/main/resources/static/frontend2"
+	exclude "*.html"
+}
+
+task copyReactHTMLFiles2(type: Copy) {
+	dependsOn "copyReactBuildResourceFiles2"
+	from "$frontendDir2/build/index.html"
+	into "$projectDir/src/main/resources/templates/frontend2"
+}
