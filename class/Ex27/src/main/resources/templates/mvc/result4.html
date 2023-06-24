@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Databases Controller Example4</h1>
+        <ul th:each="item:${item2}">
+            <li>
+                Member Num >> <span th:text="${item.empno}">0</span>
+                Member Name >> <span th:text="${item.ename}">0</span>
+                Member Sal >> <span th:text="${item.sal}">0</span>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Dynamic Query Example1</h1>
+        <form action="/param/get-param3" th:object="${dto}" method="get">
+            <label for="deptno">Deptno >> <input type="text" th:field="*{deptno}" id="deptno"></label> <br />
+            <label for="job">Job >> <input type="text" th:field="*{job}" id="job"></label> <br />
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

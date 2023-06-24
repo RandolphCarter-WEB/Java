@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.ex27.dao.MVCMapper">
+    <select id="getCount" resultType="int">
+        SELECT COUNT(*) FROM EMP
+    </select>
+
+    <select id="getEname" resultType="String">
+        SELECT ename FROM EMP where empno = 7499
+    </select>
+
+    <select id="getItem1" resultType="Map">
+        SELECT empno, ename, sal from EMP where empno = 7499
+    </select>
+
+    <select id="getItem2" resultType="Map">
+        SELECT empno, ename, sal from EMP
+    </select>
+
+    <select id="getItem3" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP
+    </select>
+
+    <select id="getItemParam1" parameterType="int" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP WHERE empno = #{empno}
+    </select>
+
+    <select id="getItemParam2" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP WHERE deptno = #{deptno} AND job = #{job}
+    </select>
+
+    <select id="getItemParam3" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP WHERE deptno = #{deptno} AND job = #{job}
+    </select>
+
+    <select id="getItemParam4" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP
+        <where>
+            <if test="deptno != 0 and deptno != null">
+                AND deptno = #{deptno}
+            </if>
+            <if test="job != null and job != ''">
+                AND job = #{job}
+            </if>
+        </where>
+    </select>
+
+    <select id="getItemParam4" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP
+        <where>
+            <choose>
+                <when test="deptno != 0 and deptno != null">
+                    AND deptno = #{deptno}
+                </when>
+                <otherwise>
+                    AND 1 = 1
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+</mapper>
